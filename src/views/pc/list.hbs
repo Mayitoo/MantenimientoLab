@@ -1,0 +1,94 @@
+<section class="section">
+    <div class="container p-4">
+  <div class="card">
+
+      <div class="card-header">
+        <div class="btn-group float-right">
+          <a
+            href="/pc/add"
+            class="button m-4 button_mover button--flex button--pequeño"
+            style="text-decoration: none; color:white;"
+          >Agregar <i class="uil uil-plus-circle button_mover button_icon"></i></a>
+        </div>
+        <div class="">
+          <h4 class="h4"><i class="fa fa-search" aria-hidden="true"></i>
+            Buscar por computadora
+          </h4>
+        </div>
+        <form class="form-inline" role="form" id="datos">
+          <div class="form-group mb-2">
+            <div class="form-group">
+              <label for="q" class="sr-onluy">Número de Serie</label>
+            </div>
+            <div class="form-group mx-sm-3">
+              <input
+                type="text"
+                class="form-control"
+                id="q"
+                placeholder="Número de serie pc"
+                onkeyup="load(1);"
+              />
+            </div>
+            <button
+              type="button"
+              class="button button--flex button--pequeño button_mover"
+              onclick="load(1);"
+            >
+              Buscar
+              <i class="uil uil-search button_icon"></i></button>
+            <div class="form-group col-md-3">
+            </div>
+          </div>
+        </form>
+      </div>
+    <div class="card-body">
+      {{!-- Tabla --}}
+        <div class="container p-2">
+          <div class="row">
+            <table class="table">
+                <thead class="thead_color">
+                    <tr>
+                      <th scope="col">No.Serie</th>
+                      <th scope="col">Marca</th>
+                      <th scope="col">Monitor</th>
+                      <th scope="col">Memoria</th>
+                      <th scope="col">RAM</th>
+                      <th scope="col">Procesador</th>
+                      <th scope="col">Estatus</th>
+                      <th scope="col">Tipo de conexion</th>
+                      <th scope="col">Laboratorio</th>
+                      <th scope="col">Acciones</th>
+
+                    </tr>
+                </thead>
+                 {{#each computadora}}
+                <tbody>
+                    <tr>
+                      <th scope="row">{{no_serie}}</th>
+                      <td scope="row">{{marca}}</td>
+                      <td scope="row">{{tipo_monitor}}</td>
+                      <td scope="row">{{memoria}}</td>
+                      <td scope="row">{{ram}}</td>
+                      <td scope="row">{{procesador}}</td>
+                      <td scope="row">{{estatus}}</td>
+                      <td scope="row">{{tipo_conexion}}</td>
+                      <td scope="row">{{fk_laboratorio}}</td>
+                      <td class="td_center">
+                        <a href="/pc/delete/{{no_serie}}" onclick="return confirm('¿Quieres eliminar la computadora {{marca}}?')"class="button button_danger m-2">Eliminar</a>
+                        <a href="/pc/edit/{{no_serie}}" class="button m-2">Editar</a>
+                      </td>
+                    </tr>
+                </tbody> 
+                
+                {{/each}}
+              </table>
+                
+              
+            </div>
+          </div>
+    </div>
+  </div>
+                
+</div>
+              
+</section>

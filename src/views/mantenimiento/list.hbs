@@ -1,0 +1,91 @@
+<section class="section">
+    <div class="container p-4">
+  <div class="card">
+
+      <div class="card-header">
+        <div class="btn-group float-right">
+          <a
+            href="/mantenimiento/add"
+            class="button m-4 button_mover button--flex button--pequeño"
+            style="text-decoration: none; color:white;"
+          >Agregar <i class="uil uil-plus-circle button_mover button_icon"></i></a>
+        </div>
+        <div class="">
+          <h4 class="h4"><i class="fa fa-search" aria-hidden="true"></i>
+            Buscar Mantenimiento
+          </h4>
+        </div>
+        <form class="form-inline" role="form" id="datos" >
+          <div class="form-group mb-2">
+            <div class="form-group">
+              <label for="q" class="sr-onluy">Número de Ticket</label>
+            </div>
+            <div class="form-group mx-sm-3">
+              <input
+                type="text"
+                class="form-control"
+                id="q"
+                placeholder="Ticket"
+                onkeyup="load(1);"
+              />
+            </div>
+            <button
+              type="button"
+              class="button button--flex button--pequeño button_mover"
+              onclick="load(1);"
+            >
+              Buscar
+              <i class="uil uil-search button_icon"></i></button>
+            <div class="form-group col-md-3">
+            </div>
+          </div>
+        </form>
+      </div>
+    <div class="card-body">
+      {{!-- Tabla --}}
+        <div class="container p-2">
+          <div class="row">
+            <table class="table">
+                <thead class="thead_color">
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">No. Ticket</th>
+                      <th scope="col">Fecha De Inicio</th>
+                      <th scope="col">Descripción Del Ticket De Soporte</th>
+                      <th scope="col">Descripción del Mantenimiento</th>
+                      <th scope="col">Persona Que Reporta</th>
+                      <th scope="col">Estatus</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                 {{#each mantenimiento}}
+                <tbody>
+                    <tr>
+                      <th scope="row">{{id_mantenimiento}}</th>
+                      <th scope="row">{{fk_ticket}}</th>
+                      <th scope="row">{{fecha}}</th>
+                      <th scope="row">{{desc_ticket}}</th>
+                      <td scope="row">{{descripcion}}</td>
+                      <th scope="row">{{persona_rep}}</th>
+                      <td scope="row">{{estatus}}</td> 
+                      <td class="td_center">
+                        <a href="/mantenimiento/delete/{{id_mantenimiento}}" onclick="return confirm('¿Quieres eliminar el mantenimiento {{descripcion}}?')"class="button button_danger m-2">Eliminar</a>
+                        <a href="/mantenimiento/edit/{{id_mantenimiento}}" class="button m-2">Editar</a>
+                      </td>
+                    </tr>
+                </tbody> 
+                
+                {{/each}}
+              </table>
+                
+              
+            </div>
+          </div>
+
+
+    </div>
+  </div>
+                
+</div>
+              
+</section>

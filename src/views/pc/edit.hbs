@@ -1,0 +1,76 @@
+<section class="section">
+        <div class="container p-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Computadora</h3>
+
+                </div>
+                <div class="card-body">
+                    <form action="/pc/edit/{{computadora.no_serie}}" method="POST" >
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="no_serie" value="{{computadora.no_serie}}" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="marca" value="{{computadora.marca}}">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="tipo_monitor">
+                                <option value="{{computadora.tipo_monitor}}">{{computadora.tipo_monitor}}</option>
+                                <option value="1" name="tipo_monitor">Monitor CRT</option>
+                                <option value="2" name="tipo_monitor">Monitor LCD o LED</option>
+                                <option value="3" name="tipo_monitor">Monitor con pantalla TFT</option>
+                                <option value="4" name="tipo_monitor">Monitor con pantalla plasma</option>
+                                <option value="5" name="tipo_monitor">Monitor con pantalla tactila</option>
+                                <option value="6" name="tipo_monitor">Monitor con pantalla DLP</option>
+                                <option value="7" name="tipo_monitor">Monitor OLED</option>
+
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="memoria" value="{{computadora.memoria}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="ram" value="{{computadora.ram}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="procesador" value="{{computadora.procesador}}">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="estatus">
+                                <option value="{{computadora.estatus}}">{{computadora.estatus}}</option>
+                                <option value="1" name="status">Funcionando</option>
+                                <option value="2" name="status">En reparación</option>
+                                <option value="3" name="status">Baja</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="tipo_conexion">
+                                <option value="{{computadora.tipo_conexion}}">{{computadora.tipo_conexion}}</option>
+                                <option value="1" name="tipo_conexion">Cable</option>
+                                <option value="2" name="tipo_conexion">Inalambrico</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="fk_laboratorio">
+                                <option value="{{computadora.fk_laboratorio}}">{{computadora.nombre_lab}}</option>
+                                {{#each lab}}
+                                <option value="{{id_laboratorio}}" name="fk_laboratorio">{{nombre_lab}}</option>
+                                {{/each}}
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button>
+                            
+                        </div>
+                    </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>

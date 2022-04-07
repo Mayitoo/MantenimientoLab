@@ -1,0 +1,51 @@
+<header class="header" id="header">
+  <div class="nav container">
+    <a href="" class="nav_logo">Laboratorio de computo</a>
+    <div class="nav_menu" id="nav_menu">
+      <ul class="nav_list grid">
+        {{#if user}}
+          {{#nav user.rol}}
+            {{! AQUI SE VA A MOSTRAR TODO EL HTML QUE TENGO EN MI HELPER }}
+          {{/nav}}
+          <li class="">
+            <a href="/ticket" class="nav_link">
+              <i class="uil uil-ticket button_icon"></i>
+              Ticket de Soporte
+            </a>
+          </li>
+          <li class="">
+            <a href="/mantenimiento" class="nav_link">
+              <i class="uil uil-wrench button_icon"></i>
+              Mantenimiento
+            </a>
+          </li>
+          <li class="">
+            <a
+              class="nav_link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="uil uil-user button_icon"></i>
+              {{user.username}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/perfil">Ver Perfil</a>
+              <a class="dropdown-item" href="/cerrar-sesion">Cerrar Sesion</a>
+            </div>
+          </li>
+        {{else}}
+          <li class="nav_item">
+            <a href="/inicio-sesion" class="nav_link">
+              <i class="uil uil-message nav_icon"></i>
+              Iniciar Sesión
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+      <i class="uil uil-times nav_cerrar" id="nav_cerrar"></i>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,59 @@
+<section class="section">
+        <div class="container p-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Ticket de soporte</h3>
+
+                </div>
+                <div class="card-body">
+                    <form action="/ticket/add" method="POST" >
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="fecha" placeholder="Fecha:" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción:">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="persona_rep" placeholder="Quien reporta:">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="estatus">
+                                <option>Estatus</option>
+                                <option value="1" name="estatus">Abierto</option>
+                                <option value="2" name="estatus">En proceso</option>
+                                <option value="3" name="estatus">Cerrado</option>
+                                </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" name="fk_laboratorio">
+                                <option>Laboratorio</option>
+                                {{#each lab}}
+                                <option value="{{id_laboratorio}}" name="fk_laboratorio">{{nombre_lab}}</option>
+                                {{/each}}
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="fk_no_serie">
+                                <option>Computadora</option>
+                                {{#each compu}}
+                                <option value="{{no_serie}}" name="fk_no_serie">{{no_serie}}</option>
+                                {{/each}}
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button>
+                            
+                        </div>
+                    </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
